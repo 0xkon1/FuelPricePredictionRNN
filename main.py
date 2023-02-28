@@ -26,14 +26,18 @@ for year_dir in os.listdir(root_dir):
 full_df = pd.concat(dfs)
 
 # Nur die Diesel-Preise in ein Numpy-Array umwandeln
-diesel_prices = full_df.groupby('station_id')['diesel'].apply(np.array).values
+# diesel_prices = full_df.groupby('station_id')['diesel'].apply(np.array).values
+# print(diesel_prices.head())
 
+# Nur die Diesel-Preise in ein Numpy-Array umwandeln
+diesel_prices = full_df["diesel"].values
 input_seqs = []
 output_seqs = []
-for diesel_prices in diesel_arrays:
+for diesel_prices in diesel_prices:
     inputs, outputs = create_sequences(diesel_prices)
     input_seqs.append(inputs)
     output_seqs.append(outputs)
+
 
 # Zusammenführen aller Input- und Output-Sequenzen in einen großen Datensatz
 all_inputs = np.concatenate(input_seqs, axis=0)
