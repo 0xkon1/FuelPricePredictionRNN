@@ -1,7 +1,8 @@
 import os
 import pandas as pd
 
-root_dir = "/home/je/Documents/HAW/IS/FuelPricePredictionRNN/monthly_data"
+root_dir = "/Users/elshoff/Documents/HAW/IS/Hausarbeit/FuelPricePredictionRNN/monthly_data"
+# root_dir = "/home/je/Documents/HAW/IS/FuelPricePredictionRNN/monthly_data"
 
 # Durchlaufe alle Jahresordner
 for year_dir in os.listdir(root_dir):

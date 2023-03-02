@@ -4,21 +4,8 @@ import numpy as np
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
 
-root_dir = "/home/je/Documents/HAW/IS/FuelPricePredictionRNN/monthly_data"
-
-
-# def create_sequences(values, time_steps=24):
-#     """
-#     Funktion, um Sequenzen von Input- und Output-Werten zu erstellen
-#     values: Ein numpy-Array von Kraftstoffpreisen
-#     time_steps: Die Länge der Sequenzen in Stunden (Standard: 24)
-#     """
-#     input_sequences = []
-#     output_sequences = []
-#     for i in range(len(values) - time_steps):
-#         input_sequences.append(values[i:i + time_steps])
-#         output_sequences.append(values[i + time_steps])
-#     return np.array(input_sequences), np.array(output_sequences)
+root_dir = "/Users/elshoff/Documents/HAW/IS/Hausarbeit/FuelPricePredictionRNN/monthly_data"
+# root_dir = "/home/je/Documents/HAW/IS/FuelPricePredictionRNN/monthly_data"
 
 
 batch_size = 64
@@ -70,3 +57,5 @@ for year_dir in os.listdir(root_dir):
             # test_inputs, test_outputs = create_sequences(test_inputs)
             loss = model.evaluate(test_inputs, test_outputs)
             print("Test Loss:", loss)
+
+            model.save("my_model.h5")
